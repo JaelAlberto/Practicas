@@ -1,0 +1,294 @@
+﻿@page
+@model Practicas.Pages.NominaModel
+@{
+    double maximo = 7738.67;
+    double AFP1, AFP2, AFP3, AFP4, AFP5;
+
+    AFP1 = Model.salarios1 * 0.0287;
+    AFP2 = Model.salarios2 * 0.0287;
+    AFP3 = Model.salarios3 * 0.0287;
+    AFP4 = Model.salarios4 * 0.0287;
+    AFP5 = Model.salarios5 * 0.0287;
+
+
+    if (AFP1>maximo)
+    {
+        AFP1 = maximo;
+    }
+    if (AFP2 > maximo)
+    {
+        AFP2 = maximo;
+    }
+    if (AFP3 > maximo)
+    {
+        AFP3 = maximo;
+    }
+    if (AFP4 > maximo)
+    {
+        AFP4 = maximo;
+    }
+    if (AFP5 > maximo)
+    {
+        AFP5 = maximo;
+    }
+
+    double maximoARS = 4098.53;
+    double ARS1, ARS2, ARS3, ARS4, ARS5;
+    ARS1 = Model.salarios1 * 0.0304;
+    ARS2 = Model.salarios2 * 0.0304;
+    ARS3 = Model.salarios3 * 0.0304;
+    ARS4 = Model.salarios4 * 0.0304;
+    ARS5 = Model.salarios5 * 0.0304;
+
+
+    if (ARS1 > maximo)
+    {
+        ARS1 = maximoARS;
+    }
+    if (ARS2 > maximo)
+    {
+        ARS2 = maximoARS;
+    }
+    if (ARS3 > maximo)
+    {
+        ARS3 = maximoARS;
+    }
+    if (ARS4 > maximo)
+    {
+        ARS4 = maximoARS;
+    }
+    if (ARS5 > maximo)
+    {
+        ARS5 = maximoARS;
+    }
+
+    double ISR1, ISR2, ISR3, ISR4, ISR5;
+    ISR1 = Model.salarios1;
+    ISR2 = Model.salarios2;
+    ISR3 = Model.salarios3;
+    ISR4 = Model.salarios4;
+    ISR5 = Model.salarios5;
+
+    if (ISR1 > 72260)
+    {
+        ISR1 = Model.salarios1 * 0.025;
+    }
+    else
+
+    {
+        if (ISR1 > 52028)
+        {
+            ISR1 = Model.salarios1 * 0.020;
+        }
+        else
+        {
+            if(ISR1 > 34690)
+            {
+                ISR1 = Model.salarios1 * 0.015;
+
+            }
+            else
+            {
+                ISR1 = 0;
+            }
+        }
+    }
+
+    if (ISR2 > 72260)
+    {
+        ISR2 = Model.salarios2 * 0.025;
+    }
+    else
+
+    {
+        if (ISR2 > 52028)
+        {
+            ISR2 = Model.salarios2 * 0.020;
+        }
+        else
+        {
+            if (ISR2 > 34690)
+            {
+                ISR2 = Model.salarios2 * 0.015;
+
+            }
+            else
+            {
+                ISR2 = 0;
+            }
+        }
+    }
+
+    if (ISR3 > 72260)
+    {
+        ISR3 = Model.salarios3 * 0.025;
+    }
+    else
+
+    {
+        if (ISR3 > 52028)
+        {
+            ISR3 = Model.salarios3 * 0.020;
+        }
+        else
+        {
+            if (ISR3 > 34690)
+            {
+                ISR3 = Model.salarios3 * 0.015;
+
+            }
+            else
+            {
+                ISR3 = 0;
+            }
+        }
+    }
+    if (ISR4 > 72260)
+    {
+        ISR4 = Model.salarios4 * 0.025;
+    }
+    else
+
+    {
+        if (ISR4 > 52028)
+        {
+            ISR4 = Model.salarios4 * 0.020;
+        }
+        else
+        {
+            if (ISR4 > 34690)
+            {
+                ISR4 = Model.salarios4 * 0.015;
+
+            }
+            else
+            {
+                ISR4 = 0;
+            }
+        }
+    }
+    if (ISR5 > 72260)
+    {
+        ISR5 = Model.salarios5 * 0.025;
+    }
+    else
+
+    {
+        if (ISR5 > 52028)
+        {
+            ISR5 = Model.salarios5 * 0.020;
+        }
+        else
+        {
+            if (ISR5 > 34690)
+            {
+                ISR5 = Model.salarios5 * 0.015;
+
+            }
+            else
+            {
+                ISR5 = 0;
+            }
+        }
+    }
+    double totaldescuentos1, totaldescuentos2, totaldescuentos3, totaldescuentos4, totaldescuentos5;
+    totaldescuentos1 = AFP1 + ARS1 + ISR1;
+    totaldescuentos2 = AFP2 + ARS2 + ISR2;
+    totaldescuentos3 = AFP3 + ARS3 + ISR3;
+    totaldescuentos4 = AFP4 + ARS4 + ISR4;
+    totaldescuentos5 = AFP5 + ARS5 + ISR5;
+
+    double salarioneto1, salarioneto2, salarioneto3, salarioneto4, salarioneto5;
+    salarioneto1 = Model.salarios1 - AFP1 - ARS1 - ISR1;
+    salarioneto2 = Model.salarios2 - AFP2 - ARS2 - ISR2;
+    salarioneto3 = Model.salarios3 - AFP3 - ARS3 - ISR3;
+    salarioneto4 = Model.salarios4 - AFP4 - ARS4 - ISR4;
+    salarioneto5 = Model.salarios5 - AFP5 - ARS5 - ISR5;
+
+    }
+
+
+
+
+
+<h1 style="text-align:center">Nomina de Empleados</h1>
+<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+    <tr>
+        <th>Nombre</th>
+
+        <th>Apellido</th>
+
+        <th>Cargo</th>
+
+        <th>Salario Mensual</th>
+
+        <th>Descuento AFP</th>
+
+        <th>Descuento ARS</th>
+
+        <th>Descuento ISR</th>
+
+        <th>Total de los descuentos</th>
+
+        <th>Salario neto</th>
+
+    </tr>
+
+    <tr>
+        <td>@Model.nombre1</td>
+        <td>@Model.apellido1</td>
+        <td>@Model.cargo1</td>
+        <td>@Model.salarios1</td>
+        <td>@AFP1</td>
+        <td>@ARS1</td>
+        <td>@ISR1</td>
+        <td>@totaldescuentos1</td>
+        <td>@salarioneto1</td>
+    </tr>
+    <tr>
+        <td>@Model.nombre2</td>
+        <td>@Model.apellido2</td>
+        <td>@Model.cargo2</td>
+        <td>@Model.salarios2</td>
+        <td>@AFP2</td>
+        <td>@ARS2</td>
+        <td>@ISR2</td>
+        <td>@totaldescuentos2</td>
+        <td>@salarioneto2</td>
+    </tr>
+    <tr>
+        <td>@Model.nombre3</td>
+        <td>@Model.apellido3</td>
+        <td>@Model.cargo3</td>
+        <td>@Model.salarios3</td>
+        <td>@AFP3</td>
+        <td>@ARS3</td>
+        <td>@ISR3</td>
+        <td>@totaldescuentos3</td>
+        <td>@salarioneto3</td>
+    </tr>
+    <tr>
+        <td>@Model.nombre4</td>
+        <td>@Model.apellido4</td>
+        <td>@Model.cargo4</td>
+        <td>@Model.salarios4</td>
+        <td>@AFP4</td>
+        <td>@ARS4</td>
+        <td>@ISR4</td>
+        <td>@totaldescuentos4</td>
+        <td>@salarioneto4</td>
+    </tr>
+    <tr>
+        <td>@Model.nombre5</td>
+        <td>@Model.apellido5</td>
+        <td>@Model.cargo5</td>
+        <td>@Model.salarios5</td>
+        <td>@AFP5</td>
+        <td>@ARS5</td>
+        <td>@ISR5</td>
+        <td>@totaldescuentos5</td>
+        <td>@salarioneto5</td>
+    </tr>
+</table>
+
+
